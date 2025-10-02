@@ -18,7 +18,11 @@
   "author": "Alejandro Barrera Aponte <alejandro@kitledger.com>",
   "type": "module",
   "main": "index.js",
+  "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.3"
   }
 }
