@@ -3,6 +3,10 @@
   "version": "0.1.0",
   "type": "module",
   "bin": "./dist/index.js",
+  "private": false,
+  "publishConfig": {
+	"access": "public"
+  },
   "scripts": {
     "build": "tsc"
   },
