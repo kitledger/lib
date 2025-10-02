@@ -1,6 +1,6 @@
 {
   "name": "@kitledger/sdk",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "type": "module",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -8,6 +8,15 @@
   "private": false,
   "publishConfig": {
 	"access": "public"
+  },
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./globals": {
+      "types": "./globals.d.ts"
+    }
   },
   "scripts": {
     "build": "tsc"
