@@ -1,6 +1,5 @@
 {
   "name": "kitledger-tools",
-  "version": "0.0.1",
   "description": "Toolkit for interacting with instances of the Kitledger platform",
   "keywords": [
     "cli",
