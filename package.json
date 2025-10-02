@@ -1,0 +1,24 @@
+{
+  "name": "kitledger-tools",
+  "version": "0.0.1",
+  "description": "Toolkit for interacting with instances of the Kitledger platform",
+  "keywords": [
+    "cli",
+    "sdk",
+    "tools",
+    "platform",
+    "scripting",
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "github.com/kitledger/tools"
+  },
+  "license": "Apache-2.0",
+  "author": "Alejandro Barrera Aponte <alejandro@kitledger.com>",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
