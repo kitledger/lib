@@ -7,10 +7,18 @@ settings:
 importers:
 
   .:
-    dependencies:
+    devDependencies:
       typescript:
         specifier: ^5.9.3
         version: 5.9.3
+
+  packages/cli:
+    dependencies:
+      '@kitledger/sdk':
+        specifier: workspace:*
+        version: link:../sdk
+
+  packages/sdk: {}
 
 packages:
 
