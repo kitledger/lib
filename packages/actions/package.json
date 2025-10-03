@@ -17,8 +17,8 @@
 	"./log": {
       "types": "./dist/log.d.ts"
     },
-	"./__definition": {
-	  "types": "./dist/__definition.d.ts"
+	"./globals": {
+	  "types": "./dist/globals.d.ts"
 	}
   },
   "scripts": {
