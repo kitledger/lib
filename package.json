@@ -14,7 +14,7 @@
     "url": "github.com/kitledger/tools"
   },
   "license": "Apache-2.0",
-  "author": "Alejandro Barrera Aponte <alejandro@kitledger.com>",
+  "author": "Alejandro Barrera Aponte <abarreraaponte@icloud.com>",
   "type": "module",
   "main": "index.js",
   "private": true,

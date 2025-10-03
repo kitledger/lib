@@ -1,5 +1,10 @@
 {
   "name": "@kitledger/cli",
+  "license":"Apache-2.0",
+  "author": {
+	"name": "Alejandro Barrera Aponte",
+	"email": "abarreraaponte@icloud.com"
+  },
   "version": "0.0.4",
   "type": "module",
   "bin": "./dist/index.js",

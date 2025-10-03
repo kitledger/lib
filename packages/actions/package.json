@@ -1,0 +1,24 @@
+{
+  "name": "@kitledger/actions",
+  "license": "Apache-2.0",
+  "version": "0.0.1",
+  "type": "module",
+  "files": [
+    "dist"
+  ],
+  "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "exports": {
+    "./log": {
+      "types": "./dist/log.d.ts"
+    },
+    "./http": {
+      "types": "./dist/http.d.ts"
+    }
+  },
+  "scripts": {
+    "build": "tsc"
+  }
+}
