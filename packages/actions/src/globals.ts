@@ -18,7 +18,7 @@ interface KitActionsApi {
  * Uses TypeScript's declaration merging to add `kit` to the global scope.
  */
 declare global {
-  const kit: KitActionsApi;
+  const kl: KitActionsApi;
 }
 
 export type { KitActionsApi };

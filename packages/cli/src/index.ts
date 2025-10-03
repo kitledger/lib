@@ -1,1 +1,1 @@
-kit.log.info('Hello, Kit!');
+kl.log.info('Hello, Kit!');
