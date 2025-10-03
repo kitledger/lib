@@ -7,7 +7,7 @@
     "rootDir": "src",
 	"lib": ["ES2022", "DOM"]
   },
-  "include": ["src"],
+  "include": ["src", "../actions/dist/globals.d.ts"],
   "references": [
     { "path": "../sdk" }
   ]
