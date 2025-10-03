@@ -12,11 +12,13 @@ importers:
         specifier: ^5.9.3
         version: 5.9.3
 
+  packages/actions: {}
+
   packages/cli:
     dependencies:
-      '@kitledger/sdk':
+      '@kitledger/actions':
         specifier: workspace:*
-        version: link:../sdk
+        version: link:../actions
 
   packages/sdk: {}
 
