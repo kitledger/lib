@@ -1,7 +1,7 @@
 {
   "name": "@kitledger/actions",
   "license": "Apache-2.0",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "type": "module",
   "files": [
     "dist"
@@ -14,6 +14,15 @@
 	"./__definition": {
 		"types": "./dist/__definition.d.ts"
 	},
+	"./context": {
+		"types": "./dist/context.d.ts"
+	},
+	"./datetime": {
+		"types": "./dist/datetime.d.ts"
+	},
+	"./entity_models": {
+		"types": "./dist/entity_models.d.ts"
+	},
 	"./globals": {
 	  "types": "./dist/globals.d.ts"
 	},
@@ -22,7 +31,13 @@
     },
 	"./log": {
       "types": "./dist/log.d.ts"
-    }
+    },
+	"./transaction_models": {
+		"types": "./dist/transaction_models.d.ts"
+	},
+	"./unit_models": {
+		"types": "./dist/unit_models.d.ts"
+	}
   },
   "scripts": {
     "build": "tsc"
