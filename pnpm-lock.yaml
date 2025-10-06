@@ -20,6 +20,8 @@ importers:
         specifier: workspace:*
         version: link:../actions
 
+  packages/query: {}
+
   packages/sdk: {}
 
 packages:

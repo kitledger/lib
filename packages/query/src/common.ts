@@ -4,9 +4,6 @@
  * particularly for querying data.
  */
 
-/** A type representing a single, non-array value for filtering. */
-export type Scalar = string | number | boolean;
-
 /** A base interface for a single filter condition. */
 interface BaseFilter {
     field: string;
@@ -15,20 +12,26 @@ interface BaseFilter {
 /** A filter condition that accepts an array of values. */
 interface ArrayValueFilter extends BaseFilter {
     operator: 'in' | 'not_in';
-    value: Scalar[];
+    value: string[] | number[] | boolean[];
 }
 
-/** A filter condition that accepts a single scalar value. */
-interface SingleValueFilter extends BaseFilter {
-    operator: 'eq' | 'neq' | 'gt' | 'gte' | 'lt' | 'lte' | 'contains' | 'starts_with' | 'ends_with';
-    value: Scalar;
+/** A filter condition that accepts a single numeric valye */
+interface NumericValueFilter extends BaseFilter {
+	operator: 'equal' | 'not_equal' | 'gt' | 'gtequal' | 'lt' | 'ltequal' | 'empty' | 'not_empty';
+	value: number | boolean;
+}
+
+/** A filter condition that accepts a single text value. */
+interface TextValueFilter extends BaseFilter {
+    operator: 'equal' | 'not_equal' | 'contains' | 'empty' | 'like' | 'not_empty' | 'starts_with' | 'ends_with';
+    value: string | boolean;
 }
 
 /**
  * A discriminated union that strictly types the filter as a self-descriptive object.
  * The `value`'s type is validated against the `operator`.
  */
-export type Filter = ArrayValueFilter | SingleValueFilter;
+export type Filter = ArrayValueFilter | NumericValueFilter | TextValueFilter;
 
 /**
  * Defines a single sort condition as a self-descriptive object.
