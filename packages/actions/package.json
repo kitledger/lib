@@ -1,7 +1,7 @@
 {
   "name": "@kitledger/actions",
   "license": "Apache-2.0",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "type": "module",
   "files": [
     "dist"
@@ -38,6 +38,9 @@
 	"./unit_models": {
 		"types": "./dist/unit_models.d.ts"
 	}
+  },
+  "dependencies": {
+    "@kitledger/query": "workspace:*"
   },
   "scripts": {
     "build": "tsc"
