@@ -1,7 +1,7 @@
 {
   "name": "@kitledger/query",
   "license": "Apache-2.0",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "type": "module",
   "files": [
     "dist"
@@ -11,8 +11,8 @@
     "access": "public"
   },
   "exports": {
-	"./common": {
-		"types": "./dist/common.d.ts"
+	".": {
+		"types": "./dist/index.d.ts"
 	}
   },
   "scripts": {
