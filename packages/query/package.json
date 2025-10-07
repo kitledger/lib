@@ -20,6 +20,6 @@
     "build": "tsc"
   },
   "peerDependencies": {
-	"valibot": "workspace:*"
+	"valibot": "^1.1.0"
   }
 }
