@@ -5,6 +5,9 @@ const BaseConditionSchema = v.object({
     column: v.string(),
 });
 
+/**
+ * Schema for parsing array condition values (e.g., 'in', 'not_in' operators)
+ */
 const ArrayValueConditionSchema = v.intersect([
     BaseConditionSchema,
     v.object({
@@ -13,6 +16,9 @@ const ArrayValueConditionSchema = v.intersect([
     }),
 ]);
 
+/**
+ * Schema for parsing date condition values (e.g., 'equal', 'gt', 'lt' operators)
+ */
 const DateValueConditionSchema = v.intersect([
     BaseConditionSchema,
     v.object({
@@ -21,6 +27,9 @@ const DateValueConditionSchema = v.intersect([
     }),
 ]);
 
+/**
+ * Schema for parsing numeric condition values (e.g., 'equal', 'gt', 'lt' operators)
+ */
 const NumericValueConditionSchema = v.intersect([
 	BaseConditionSchema,
 	v.object({
@@ -29,6 +38,9 @@ const NumericValueConditionSchema = v.intersect([
 	}),
 ]);
 
+/**
+ * Schema for parsing text condition values (e.g., 'equal', 'contains', 'like' operators)
+ */
 const TextValueConditionSchema = v.intersect([
 	BaseConditionSchema,
 	v.object({
@@ -37,6 +49,9 @@ const TextValueConditionSchema = v.intersect([
 	}),
 ]);
 
+/**
+ * Schema for parsing any condition value
+ */
 export const ConditionSchema = v.union([
     ArrayValueConditionSchema,
     DateValueConditionSchema,
@@ -44,6 +59,9 @@ export const ConditionSchema = v.union([
 	TextValueConditionSchema,
 ]);
 
+/**
+ * Recursive Schema for parsing a group of conditions combined with a logical connector ('and'/'or')
+ */
 export const ConditionGroupSchema: v.GenericSchema<ConditionGroup> = v.lazy(() =>
     v.object({
         connector: v.union([v.literal('and'), v.literal('or')]),
@@ -51,28 +69,43 @@ export const ConditionGroupSchema: v.GenericSchema<ConditionGroup> = v.lazy(() =
     })
 );
 
+/**
+ * Schema for parsing a simple column selection (with optional alias)
+ */
 export const SimpleColumnSchema = v.object({
     column: v.string(),
     as: v.optional(v.string()),
 });
 
+/**
+ * Schema for parsing an aggregate column selection (with function, column, and alias)
+ */
 export const AggregateColumnSchema = v.object({
     func: v.union([ v.literal('sum'), v.literal('avg'), v.literal('count'), v.literal('min'), v.literal('max')]),
     column: v.string(),
     as: v.string(),
 });
 
+/**
+ * Schema for parsing any column selection (simple or aggregate)
+ */
 export const ColumnSchema = v.union([
     v.string(),
     SimpleColumnSchema,
     AggregateColumnSchema,
 ]);
 
+/**
+ * Schema for parsing an order by clause (column and direction)
+ */
 export const OrderSchema = v.object({
     column: v.string(),
     direction: v.union([v.literal('asc'), v.literal('desc')]),
 });
 
+/**
+ * Schema for parsing a complete query with selections, conditions, ordering, grouping, limits, and offsets
+ */
 export const QuerySchema = v.object({
     select: v.array(ColumnSchema),
 	where: v.array(ConditionGroupSchema),
@@ -91,11 +124,30 @@ export const QuerySchema = v.object({
 	)),
 });
 
+/**
+ * Condition Group type (recursive)
+ */
 export type ConditionGroup = {
     connector: 'and' | 'or';
     conditions: (v.InferOutput<typeof ConditionSchema> | ConditionGroup)[];
 };
+
+/**
+ * Condition type inferred from ConditionSchema
+ */
 export type Condition = v.InferInput<typeof ConditionSchema>;
+
+/**
+ * Column type inferred from ColumnSchema
+ */
 export type Column = v.InferInput<typeof ColumnSchema>;
+
+/**
+ * Order type inferred from OrderSchema
+ */
 export type Order = v.InferInput<typeof OrderSchema>;
+
+/**
+ * Query type inferred from QuerySchema
+ */
 export type Query = v.InferInput<typeof QuerySchema>;
