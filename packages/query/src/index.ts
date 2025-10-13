@@ -46,7 +46,7 @@ export const ConditionSchema = v.union([
 
 export const ConditionGroupSchema: v.GenericSchema<ConditionGroup> = v.lazy(() =>
     v.object({
-        operator: v.union([v.literal('and'), v.literal('or')]),
+        connector: v.union([v.literal('and'), v.literal('or')]),
         conditions: v.array(v.union([ConditionSchema, ConditionGroupSchema])),
     })
 );
@@ -92,7 +92,7 @@ export const QuerySchema = v.object({
 });
 
 export type ConditionGroup = {
-    operator: 'and' | 'or';
+    connector: 'and' | 'or';
     conditions: (v.InferOutput<typeof ConditionSchema> | ConditionGroup)[];
 };
 export type Condition = v.InferInput<typeof ConditionSchema>;
