@@ -70,6 +70,18 @@ export const ConditionGroupSchema: v.GenericSchema<ConditionGroup> = v.lazy(() =
 );
 
 /**
+ * Schema for a simplified recursive query, assuming conventions:
+ * - The parent record's primary key is 'id'.
+ * - The child record's foreign key is 'parent_id'.
+ */
+export const RecursiveQuerySchema = v.object({
+  // 'ancestors' walks up the tree from child to parent; 'descendants' walks down.
+  direction: v.union([v.literal('ancestors'), v.literal('descendants')]),
+  // A standard filter to define the starting point of the recursion.
+  startWith: ConditionGroupSchema,
+});
+
+/**
  * Schema for parsing a simple column selection (with optional alias)
  */
 export const SimpleColumnSchema = v.object({
@@ -124,6 +136,7 @@ export const OrderSchema = v.object({
  */
 export const QuerySchema = v.object({
     select: v.array(ColumnSchema),
+	recursive: v.optional(RecursiveQuerySchema),
 	joins: v.optional(v.array(JoinSchema)),
 	where: v.array(ConditionGroupSchema),
     orderBy: v.optional(v.array(OrderSchema)),
