@@ -96,6 +96,22 @@ export const ColumnSchema = v.union([
 ]);
 
 /**
+ * Schema for parsing a JOIN clause.
+ */
+export const JoinSchema = v.object({
+	type: v.union([
+		v.literal('inner'),
+		v.literal('left'),
+		v.literal('right'),
+		v.literal('full_outer'),
+	]),
+	table: v.string(),
+	as: v.optional(v.string()),
+	onLeft: v.string(),
+	onRight: v.string(),
+});
+
+/**
  * Schema for parsing an order by clause (column and direction)
  */
 export const OrderSchema = v.object({
@@ -108,6 +124,7 @@ export const OrderSchema = v.object({
  */
 export const QuerySchema = v.object({
     select: v.array(ColumnSchema),
+	joins: v.optional(v.array(JoinSchema)),
 	where: v.array(ConditionGroupSchema),
     orderBy: v.optional(v.array(OrderSchema)),
     groupBy: v.optional(v.array(v.string())),
