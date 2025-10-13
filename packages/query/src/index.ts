@@ -160,6 +160,11 @@ export type Condition = v.InferInput<typeof ConditionSchema>;
 export type Column = v.InferInput<typeof ColumnSchema>;
 
 /**
+ * Join type inferred from JoinSchema
+ */
+export type Join = v.InferInput<typeof JoinSchema>;
+
+/**
  * Order type inferred from OrderSchema
  */
 export type Order = v.InferInput<typeof OrderSchema>;
