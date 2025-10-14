@@ -25,13 +25,13 @@ jobs:
         run: bun run build
 
       - name: Publish changed packages
-        # By setting the NPM_TOKEN env var, `bun publish` will automatically use it for authentication.
         env:
-          NPM_CONFIG_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
           for pkg in packages/*; do
             if [ -d "$pkg" ]; then
               echo "INFO: Attempting to publish package in '$pkg'"
-              (cd "$pkg" && bun publish --no-git-checks)
+              # Use the --tolerate-republish flag to prevent errors on existing versions
+              (cd "$pkg" && bun publish --no-git-checks --tolerate-republish)
             fi
           done
