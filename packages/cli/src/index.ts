@@ -1,1 +1,1 @@
-kl.log.info('Hello, Kit!');
+console.log('Hello, World!');
