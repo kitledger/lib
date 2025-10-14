@@ -24,10 +24,10 @@ jobs:
       - name: Build all packages
         run: bun run build
 
-      - name: Set up npm for publishing
-        run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
-
       - name: Publish changed packages
+        # By setting the NPM_TOKEN env var, `bun publish` will automatically use it for authentication.
+        env:
+          NPM_CONFIG_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
           for pkg in packages/*; do
             if [ -d "$pkg" ]; then
