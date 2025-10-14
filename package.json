@@ -19,12 +19,16 @@
   "main": "index.js",
   "private": true,
   "scripts": {
-    "build": "pnpm --filter \"./packages/**\" build"
+    "build": "bun run --filter \"./packages/**\" build"
   },
   "devDependencies": {
-    "typescript": "^5.9.3"
+    "typescript": "^5.9.3",
+    "@types/bun": "latest"
   },
   "dependencies": {
     "valibot": "^1.1.0"
-  }
+  },
+  "workspaces": [
+    "packages/*"
+  ]
 }

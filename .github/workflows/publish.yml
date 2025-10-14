@@ -2,7 +2,6 @@ name: Publish Packages
 
 on:
   workflow_dispatch:
-
   push:
     branches:
       - main
@@ -16,25 +15,23 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v2
-        with:
-          version: 8
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '22'
-          cache: 'pnpm'
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v1
 
       - name: Install dependencies
-        run: pnpm install
+        run: bun install
 
       - name: Build all packages
-        run: pnpm build
+        run: bun run build
 
       - name: Set up npm for publishing
-        run: pnpm config set //registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}
+        run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
 
       - name: Publish changed packages
-        run: pnpm publish --filter "./packages/**" --no-git-checks
+        run: |
+          for pkg in packages/*; do
+            if [ -d "$pkg" ]; then
+              echo "INFO: Attempting to publish package in '$pkg'"
+              (cd "$pkg" && bun publish --no-git-checks)
+            fi
+          done
