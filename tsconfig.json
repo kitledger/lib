@@ -25,10 +25,5 @@
 
     /* Completeness */
     "skipLibCheck": true
-  },
-  "files": [],
-  "references": [
-    { "path": "./packages/sdk" },
-    { "path": "./packages/cli" }
-  ]
+  }
 }

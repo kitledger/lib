@@ -1,5 +1,5 @@
 /**
- * @module @kitledger/actions/entityModel
+ * @module @kitledger/actions/entity_model
  * Provides functions to create, read, update, and delete Entity Model definitions.
  */
 

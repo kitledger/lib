@@ -11,33 +11,27 @@
     "access": "public"
   },
   "exports": {
-	"./__definition": {
-		"types": "./dist/__definition.d.ts"
-	},
-	"./context": {
-		"types": "./dist/context.d.ts"
-	},
-	"./datetime": {
-		"types": "./dist/datetime.d.ts"
-	},
-	"./entity_models": {
-		"types": "./dist/entity_models.d.ts"
-	},
-	"./globals": {
-	  "types": "./dist/globals.d.ts"
-	},
+    "./context": {
+      "types": "./dist/context.d.ts"
+    },
+    "./datetime": {
+      "types": "./dist/datetime.d.ts"
+    },
+    "./entity_models": {
+      "types": "./dist/entity_models.d.ts"
+    },
     "./http": {
       "types": "./dist/http.d.ts"
     },
-	"./log": {
+    "./log": {
       "types": "./dist/log.d.ts"
     },
-	"./transaction_models": {
-		"types": "./dist/transaction_models.d.ts"
-	},
-	"./unit_models": {
-		"types": "./dist/unit_models.d.ts"
-	}
+    "./transaction_models": {
+      "types": "./dist/transaction_models.d.ts"
+    },
+    "./unit_models": {
+      "types": "./dist/unit_models.d.ts"
+    }
   },
   "dependencies": {
     "@kitledger/query": "workspace:*"

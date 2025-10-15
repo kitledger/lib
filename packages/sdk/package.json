@@ -9,7 +9,7 @@
   "type": "module",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
-  "files": ["dist", "globals.d.ts"],
+  "files": ["dist"],
   "private": false,
   "publishConfig": {
 	"access": "public"
@@ -18,9 +18,6 @@
     ".": {
       "import": "./dist/index.js",
       "types": "./dist/index.d.ts"
-    },
-    "./globals": {
-      "types": "./globals.d.ts"
     }
   },
   "scripts": {
