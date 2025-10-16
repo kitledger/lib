@@ -19,7 +19,11 @@
   "main": "index.js",
   "private": true,
   "scripts": {
-    "build": "bun run --filter \"./packages/**\" build"
+    "build": "bun run build:actions && bun run build:cli && bun run build:sdk && bun run build:query",
+    "build:actions": "bun run --cwd ./packages/actions build",
+    "build:cli": "bun run --cwd ./packages/cli build",
+    "build:sdk": "bun run --cwd ./packages/sdk build",
+    "build:query": "bun run --cwd ./packages/query build"
   },
   "devDependencies": {
     "typescript": "^5.9.3",
