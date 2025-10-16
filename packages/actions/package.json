@@ -1,7 +1,7 @@
 {
   "name": "@kitledger/actions",
   "license": "Apache-2.0",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "type": "module",
   "files": [
     "dist"
@@ -11,26 +11,9 @@
     "access": "public"
   },
   "exports": {
-    "./context": {
-      "types": "./dist/context.d.ts"
-    },
-    "./datetime": {
-      "types": "./dist/datetime.d.ts"
-    },
-    "./entity_models": {
-      "types": "./dist/entity_models.d.ts"
-    },
-    "./http": {
-      "types": "./dist/http.d.ts"
-    },
-    "./log": {
-      "types": "./dist/log.d.ts"
-    },
-    "./transaction_models": {
-      "types": "./dist/transaction_models.d.ts"
-    },
-    "./unit_models": {
-      "types": "./dist/unit_models.d.ts"
+    ".": {
+      "types": "./dist/index.d.ts",
+	  "import": "./dist/index.js"
     }
   },
   "dependencies": {

@@ -6,29 +6,47 @@
 /**
  * Writes a detailed message for debugging purposes.
  */
-export declare function debug(message: string, context?: Record<string, unknown>): Promise<void>;
+export function debug(message: string, context?: Record<string, unknown>): Promise<boolean> {
+	console.debug(message, context);
+	return Promise.resolve(true);
+}
 
 /**
  * Writes an informational message about routine operations.
  */
-export declare function info(message: string, context?: Record<string, unknown>): Promise<void>;
+export function info(message: string, context?: Record<string, unknown>): Promise<boolean> {
+	console.info(message, context);
+	return Promise.resolve(true);
+}
 
 /**
  * Writes a warning message about a potential issue.
  */
-export declare function warn(message: string, context?: Record<string, unknown>): Promise<void>;
+export function warn(message: string, context?: Record<string, unknown>): Promise<boolean> {
+	console.warn(message, context);
+	return Promise.resolve(true);
+}
 
 /**
  * Writes a message about an error that occurred during execution.
  */
-export declare function error(message: string, context?: Record<string, unknown>): Promise<void>;
+export function error(message: string, context?: Record<string, unknown>): Promise<boolean> {
+	console.error(message, context);
+	return Promise.resolve(true);
+}
 
 /**
  * Writes a high-priority message for auditing business or security events.
  */
-export declare function audit(message: string, context?: Record<string, unknown>): Promise<void>;
+export function audit(message: string, context?: Record<string, unknown>): Promise<boolean> {
+	console.log(`AUDIT: ${message}`, context);
+	return Promise.resolve(true);
+}
 
 /**
  * Writes a critical message about a system failure requiring immediate attention.
  */
-export declare function emergency(message: string, context?: Record<string, unknown>): Promise<void>;
+export function emergency(message: string, context?: Record<string, unknown>): Promise<boolean> {
+	console.error(`EMERGENCY: ${message}`, context);
+	return Promise.resolve(true);
+}

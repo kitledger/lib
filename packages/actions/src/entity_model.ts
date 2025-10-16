@@ -1,30 +1,20 @@
-/**
- * @module @kitledger/actions/entity_model
- * Provides functions to create, read, update, and delete Entity Model definitions.
- */
+/** Creates a new Entity Model definition. */
 
-/**
- * The complete definition of an Entity Model archetype.
- */
-export interface EntityModelDefinition {
-    /** The primary, user-defined unique identifier for the model (e.g., 'customer'). */
-    ref_id: string;
-    /** An optional secondary identifier. */
-    alt_id?: string;
-    /** The human-readable name of the model (e.g., 'Customer'). */
-    name: string;
-    /** Whether the model is currently active and can be used to create new entities. */
-    active?: boolean;
+export type EntityModel = {
+	id: string;
+	name: string;
 }
 
-/** Creates a new Entity Model definition. */
-export declare function create(definition: Omit<EntityModelDefinition, 'active'>): Promise<EntityModelDefinition>;
-
-/** Retrieves an existing Entity Model definition by its ref_id. */
-export declare function get(options: { ref_id: string }): Promise<EntityModelDefinition>;
+export function create(data: EntityModel): Promise<EntityModel> {
+	return Promise.resolve(data);
+};
 
 /** Updates an existing Entity Model definition. */
-export declare function update(options: { ref_id:string; data: Partial<EntityModelDefinition> }): Promise<EntityModelDefinition>;
+export function update(data: EntityModel): Promise<EntityModel> {
+	return Promise.resolve(data);
+}
 
-/** Deletes an Entity Model definition. */
-export declare function del(options: { ref_id: string }): Promise<void>;
+/** Deletes a Entity Model definition. */
+export function destroy(options: { id: string, reason: string }): Promise<{ deleted: boolean, message?: string }> {
+	return Promise.resolve({ deleted: true, message: `Deleted ${options.id}` });
+}
