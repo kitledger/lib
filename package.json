@@ -19,11 +19,7 @@
   "main": "index.js",
   "private": true,
   "scripts": {
-    "build": "bun run build:actions && bun run build:cli && bun run build:sdk && bun run build:query",
-    "build:actions": "bun run --cwd ./packages/actions build",
-    "build:cli": "bun run --cwd ./packages/cli build",
-    "build:sdk": "bun run --cwd ./packages/sdk build",
-    "build:query": "bun run --cwd ./packages/query build"
+    "build": "pnpm -r run build"
   },
   "devDependencies": {
     "typescript": "^5.9.3",
@@ -31,8 +27,5 @@
   },
   "dependencies": {
     "valibot": "^1.1.0"
-  },
-  "workspaces": [
-    "packages/*"
-  ]
+  }
 }
