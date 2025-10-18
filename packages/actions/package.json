@@ -17,7 +17,8 @@
     }
   },
   "dependencies": {
-    "@kitledger/query": "workspace:*"
+    "@kitledger/query": "workspace:*",
+	"@kitledger/sdk": "workspace:*"
   },
   "scripts": {
     "build": "tsc"

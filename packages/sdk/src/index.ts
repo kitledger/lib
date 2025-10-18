@@ -1,1 +1,1 @@
-console.log("SDK Module Loaded");
+console.log('SDK initialized');

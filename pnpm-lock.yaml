@@ -24,6 +24,9 @@ importers:
       '@kitledger/query':
         specifier: workspace:*
         version: link:../query
+      '@kitledger/sdk':
+        specifier: workspace:*
+        version: link:../sdk
 
   packages/cli:
     dependencies:
