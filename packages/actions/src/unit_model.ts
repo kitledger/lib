@@ -1,20 +1,9 @@
-/** Creates a new Unit Model definition. */
+import { UnitModelCreateData, UnitModel } from "@kitledger/sdk/types";
+import { __host_rpc } from "./_internal.js";
 
-export type UnitModel = {
-	id: string;
-	name: string;
-}
-
-export function create(data: UnitModel): Promise<UnitModel> {
-	return Promise.resolve(data);
+export async function create(data: UnitModelCreateData): Promise<UnitModel> {
+	return await __host_rpc<UnitModelCreateData, UnitModel>(
+		"UNIT_MODEL.CREATE",
+		data,
+	);
 };
-
-/** Updates an existing Unit Model definition. */
-export function update(data: UnitModel): Promise<UnitModel> {
-	return Promise.resolve(data);
-}
-
-/** Deletes a Unit Model definition. */
-export function destroy(options: { id: string, reason: string }): Promise<{ deleted: boolean, message?: string }> {
-	return Promise.resolve({ deleted: true, message: `Deleted ${options.id}` });
-}
