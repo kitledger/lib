@@ -1,7 +1,7 @@
 {
   "name": "@kitledger/actions",
   "license": "Apache-2.0",
-  "version": "0.0.11",
+  "version": "0.0.12",
   "type": "module",
   "files": [
     "dist"
@@ -11,6 +11,10 @@
     "access": "public"
   },
   "exports": {
+	"./_internal": {
+	  "types": "./dist/_internal.d.ts",
+	  "import": "./dist/_internal.js"
+	},
     ".": {
       "types": "./dist/index.d.ts",
 	  "import": "./dist/index.js"
