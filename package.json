@@ -22,8 +22,7 @@
     "build": "pnpm -r run build"
   },
   "devDependencies": {
-    "typescript": "^5.9.3",
-    "@types/bun": "latest"
+    "typescript": "^5.9.3"
   },
   "dependencies": {
     "valibot": "^1.1.0"
