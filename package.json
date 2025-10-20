@@ -19,7 +19,8 @@
   "main": "index.js",
   "private": true,
   "scripts": {
-    "build": "pnpm -r run build"
+    "build": "pnpm -r run build",
+	"typecheck": "pnpm -r run typecheck"
   },
   "devDependencies": {
     "typescript": "^5.9.3"

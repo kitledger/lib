@@ -1,3 +1,5 @@
+export type ScriptableObjectTypes = 'ACCOUNT' | 'ENTITY_MODEL' | 'ENTITY' | 'LEDGER' | 'TRANSACTION_MODEL' | 'TRANSACTION' | 'UNIT_MODEL' | 'UNIT';
+
 export type AccountCreateData = {
     ref_id: string;
     alt_id: string | null;

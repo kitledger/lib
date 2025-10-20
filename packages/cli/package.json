@@ -15,7 +15,8 @@
     "access": "public"
   },
   "scripts": {
-    "build": "tsc"
+    "build": "tsc",
+	"typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "@kitledger/actions": "workspace:*",

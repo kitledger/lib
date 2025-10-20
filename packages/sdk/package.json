@@ -5,7 +5,7 @@
 	"name": "Alejandro Barrera Aponte",
 	"email": "abarreraaponte@icloud.com"
   },
-  "version": "0.0.8",
+  "version": "0.0.9",
   "type": "module",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -24,6 +24,7 @@
 	}
   },
   "scripts": {
-    "build": "tsc"
+    "build": "tsc",
+	"typecheck": "tsc --noEmit"
   }
 }

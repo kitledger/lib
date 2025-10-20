@@ -1,7 +1,7 @@
 {
   "name": "@kitledger/actions",
   "license": "Apache-2.0",
-  "version": "0.0.13",
+  "version": "0.0.14",
   "type": "module",
   "files": [
     "dist"
@@ -11,9 +11,17 @@
     "access": "public"
   },
   "exports": {
-	"./_internal": {
-	  "types": "./dist/_internal.d.ts",
-	  "import": "./dist/_internal.js"
+	"./input": {
+	  "types": "./dist/internal/input.d.ts",
+	  "import": "./dist/internal/input.js"
+	},
+	"./project": {
+		"types": "./dist/internal/project.d.ts",
+		"import": "./dist/internal/project.js"
+	},
+	"./runtime": {
+	  "types": "./dist/internal/runtime.d.ts",
+	  "import": "./dist/internal/runtime.js"
 	},
     ".": {
       "types": "./dist/index.d.ts",
@@ -25,6 +33,7 @@
 	"@kitledger/sdk": "workspace:*"
   },
   "scripts": {
-    "build": "tsc"
+    "build": "tsc",
+	"typecheck": "tsc --noEmit"
   }
 }

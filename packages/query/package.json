@@ -17,7 +17,8 @@
 	}
   },
   "scripts": {
-    "build": "tsc"
+    "build": "tsc",
+	"typecheck": "tsc --noEmit"
   },
   "peerDependencies": {
 	"valibot": "^1.1.0"
