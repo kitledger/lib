@@ -103,8 +103,8 @@ export const AggregateColumnSchema = v.object({
  */
 export const ColumnSchema = v.union([
     v.string(),
-    SimpleColumnSchema,
     AggregateColumnSchema,
+    SimpleColumnSchema
 ]);
 
 /**
